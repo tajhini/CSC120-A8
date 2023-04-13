@@ -233,7 +233,7 @@ public class Character implements Contract{
         System.out.println("Use undone");
     }
     if (undoMethod.equalsIgnoreCase("walk")){
-        System.out.println("What direction did oyou go?");
+        System.out.println("What direction did you go?");
         String undoDirt = input.nextLine();
         if (undoDirt.equalsIgnoreCase("East")){
             this.xPos = this.xPos - 5;
@@ -250,6 +250,24 @@ public class Character implements Contract{
         System.out.println("Walk undone");
     }
     if (undoMethod.equalsIgnoreCase("fly")){
+        System.out.println("What direction did you fly?");
+        String flyDirect = input.nextLine();
+        System.out.println("What was the x coordinarte?");
+        int xCord =  input.nextInt();
+        System.out.println("What was the y coordinarte?");
+        int yCord = input.nextInt();
+
+        if (flyDirect.equalsIgnoreCase("eastward")){
+
+            this.xPos = this.xPos - xCord;
+            this.yPos = this.yPos - yCord;
+        }
+
+        if (flyDirect.equalsIgnoreCase("westward")){
+            this.xPos = this.xPos - xCord;
+            this.yPos = this.yPos - yCord;
+        }
+        System.out.println("Fly undone");
         
     }
     if (undoMethod.equalsIgnoreCase("shrink")){
@@ -265,13 +283,17 @@ public class Character implements Contract{
     }
     input.close();
   
-System.out.println("Action Undone");
+
     }
 
     public static void main(String[] args) {
        Character Bob = new Character("Bob");
        Bob.walk("East");
        System.out.println( Bob.shrink());
+       Bob.fly(12, 12);
+       Bob.undo();
+       System.out.println( Bob.yPos);
+       System.out.println( Bob.xPos);
       
       
     
