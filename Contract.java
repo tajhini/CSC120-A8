@@ -1,3 +1,9 @@
+
+
+
+
+
+
 public interface Contract {
 
     void grab(String item);
